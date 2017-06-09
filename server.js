@@ -5,10 +5,15 @@ var routes = require('./app/routes/index.js');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
+var path =  require("path");
+var bodyParser = require("body-parser");
 
 var app = express();
 require('dotenv').load();
 require('./app/config/passport')(passport);
+
+app.set('views', path.join(__dirname, '/public'));
+app.set('view engine', 'ejs');
 
 mongoose.connect(process.env.MONGO_URI);
 mongoose.Promise = global.Promise;
@@ -25,6 +30,9 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 routes(app, passport);
 

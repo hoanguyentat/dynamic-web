@@ -1,0 +1,23 @@
+<% include header %>
+<body>
+    <div class="container">
+	    <% include navbar %>
+	    
+		<div style="margin-top: 60px;">
+			<table class="table table-condensed table-hover">
+				<thead>
+					<tr>
+						<th><center><h2>All polls</h2></center></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for (var i = 0; i < polls.length; i++) { %>
+						<tr>
+							<td><a href="/polls/<%= polls[i]._id %>"><%= polls[i].content %></a></td>
+						</tr>
+					<% } %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>

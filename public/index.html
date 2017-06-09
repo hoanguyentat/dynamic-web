@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-
 <html>
 
 	<head>
-		<title>Clementine.js - The elegant and lightweight full stack JavaScript boilerplate.</title>
+		<title>Voting-app</title>
 		
 		<link href="/public/css/main.css" rel="stylesheet" type="text/css">
 	</head>
@@ -13,21 +11,25 @@
 		<a class="menu" href="/profile">Profile</a>
 		<p>|</p>
 		<a class="menu" href="/logout">Logout</a>
+		<p>|</p>
+		<a class="menu" href="/polls/add-polls">New polls</a>
+		<p>|</p>
+		<a class="menu" href="/polls">All polls</a>
 	</header>
 
 	<body>
 		<div class="container">
 			<img src="/public/img/clementine_150.png" />
 			<br />
-			<p class="clementine-text">Clementine.js</p>
+			<p class="clementine-text">Voting - app</p>
 		</div>
 	
 		<div class="container">
 			<p>You have clicked the button <span id="click-nbr"></span> times.</p>
 			<br />
 			<div class="btn-container">
-				<button type="submit" class="btn btn-add">CLICK ME!</button>
-				<button class="btn btn-delete">RESET</button>
+				<button type="submit" class="btn-home btn-add">CLICK ME!</button>
+				<button class="btn-home btn-delete">RESET</button>
 			</div>
 		</div>
 		
