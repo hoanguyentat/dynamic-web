@@ -7,8 +7,7 @@ var polls = require("./polls");
 module.exports = function (app, passport) {
 
 	function isLoggedIn (req, res, next) {
-		console.log(req.user);
-		console.log(req.isAuthenticated());
+		// console.log(req.user);
 		if (req.isAuthenticated()) {
 			return next();
 		} else {

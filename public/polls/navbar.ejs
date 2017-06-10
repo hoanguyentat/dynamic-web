@@ -14,6 +14,8 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<ul class="nav navbar-nav navbar-right">
 			<% if(user_name) { %>
+				<li><a href="/polls/add-polls">New Poll</a></li>
+				<li><a href="/polls/my-polls">My Polls</a></li>
 				<li class="dropdown">
 					<a href="" class="dropdown-toggle" data-toggle="dropdown"><%= user_name %><b class="caret"></b></a>
 					<ul class="dropdown-menu">
