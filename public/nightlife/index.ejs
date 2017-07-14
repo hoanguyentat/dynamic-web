@@ -1,0 +1,50 @@
+<% include header %>
+<body>
+    <% include navbar %>
+	<div class="container" style="margin-top: 60px;">
+		<form action="/nightlife" method="POST" role="form">
+        	<legend>Kế hoạch cho tối nay?</legend>
+
+        	<div class="form-group">
+        		<label for="search">Bạn đang ở:</label>
+        		<input type="search" class="form-control" id="search" name="location">
+        	</div>
+        	<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+        </form>
+        <% if (data) { %>
+    		<ul class="list-group">
+                <% for(var i = 0; i < data.length; i++) { %>
+                    <li class="list-group-item">
+                        <div class="row">
+        					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        						<a href="<%= data[i].url %>" class="pull-left">
+        							<img src="<%= data[i].image_url %>" class="media-photo img img-responsive">
+        						</a>
+        					</div>
+        					<div class="col-xs-12 col-sm-8">
+        					    <p>Adress: <%= data[i].location.address1 %>, </p>
+        					    <p>Phone: <%= data[i].phone %></p>
+        					    <button class="btn btn-xs btn-primary" id="goingbar" onClick="goingBar('<%= location %>', '<%= data[i].id %>')" id="going"><%= data[i].going.length %> GOING </button>
+    						</div>
+						</div>
+		            </li>
+                <% } %>
+        	</ul>
+        <% } %>
+	</div>
+	<script type="text/javascript">
+	    function goingBar(location, barId){
+	    	var x = document.getElementById("goingbar");
+	    	x.disabled = "disabled";
+	        console.log("Clicked")
+	        data = {
+	            location : location,
+	            barId : barId
+	        }
+	        $.post("/nightlife/going", data, function(data, status){
+	           // console.log(data)
+	           x.disabled = false;
+	        });
+	    }
+	</script>
+</body>

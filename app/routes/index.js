@@ -3,6 +3,7 @@
 var path = process.cwd();
 var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
 var polls = require("./polls");
+var nightlife = require("./nightlife")
 
 module.exports = function (app, passport) {
 
@@ -58,4 +59,5 @@ module.exports = function (app, passport) {
 		.delete(isLoggedIn, clickHandler.resetClicks);
 		
 	app.use('/polls', polls);
+	app.use('/nightlife', nightlife);
 };
